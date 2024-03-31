@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: ToDo API
+  description: API for managing user's todos
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3008/  # Update with your actual server URL
+
+paths:
+  /todos:
+    post:
+      summary: Add a new todo
+      description: Add a new todo for a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Todo added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  newTodo:
+                    type: object
+        '500':
+          description: Invalid request body
+        '500':
+          description: User does not exist
+        '401':
+          description: Un Authorized
+
+    get:
+      summary: Get user's todos
+      description: Retrieve todos for a specific user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retrieved user's todos successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  todos:
+                    type: array
+                    items:
+                      $ref: object
+        '500':
+          description: User does not exist
+        '401':
+          description: Un Authorized
+
+  /todos:
+    put:
+      summary: Update a todo
+      description: Update an existing todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                todoId:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Todo updated successfully
+        '500':
+          description: Invalid request body
+        '500':
+          description: User does not exist
+        '401':
+          description: Un Authorized
+
+    delete:
+      summary: Delete a todo
+      description: Delete an existing todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                todoId:
+                  type: string
+      responses:
+        '200':
+          description: Todo deleted successfully
+        '500':
+          description: Invalid request body
+        '500':
+          description: User does not exist
+        '401':
+          description: Un Authorized
