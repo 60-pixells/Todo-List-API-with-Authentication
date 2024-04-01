@@ -31,3 +31,15 @@ Description: This Node.js backend application provides a set of CRUD (Create, Re
 ## Testing
 
 1. Run `npm run test` to execute the tests.
+
+## Live demo deployed using Render
+
+
+1. Base URL : https://todo-list-api-with-authentication.onrender.com
+
+2. To Register A New User Use - BASE URL + /register
+    Example: https://todo-list-api-with-authentication.onrender.com/register
+    Send appropriate body while making the request in the above case i.e. userName and password
+    To Get ToDo list of a user use - BASE URL + /todos/:id
+    Example : https://todo-list-api-with-authentication.onrender.com/todos/f776042e-5e97-4780-83e5-692e82a59968
+3. The instance will spin down with inactivity, which can delay requests by 50 seconds or more for the first request after inactivity

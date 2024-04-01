@@ -1,0 +1,72 @@
+1) Register a New User
+
+Route: /register
+Method: POST
+Parameters Accepted:
+userName (string): The username of the new user.
+password (string): The password of the new user.
+Response:
+200 OK if the user is registered successfully, providing a message and user ID.
+500 Internal Server Error if there's an issue during registration.
+
+2) Login with Username and Password
+
+Route: /login
+Method: POST
+Parameters Accepted:
+userName (string): The username of the user trying to log in.
+password (string): The password of the user trying to log in.
+Response:
+200 OK if the login is successful, providing a JWT token.
+401 Unauthorized if the provided username or password is incorrect.
+500 Internal Server Error if there's an issue during login.
+
+3) Add a New Todo
+
+Route: /todos
+Method: POST
+Parameters Accepted:
+userId (string): The ID of the user for whom the todo is being added.
+title (string): The title of the todo.
+description (string): The description of the todo.
+Response:
+200 OK if the todo is added successfully, providing the details of the newly added todo.
+500 Internal Server Error if there's an issue with the request body or if the user does not exist.
+401 Unauthorized if the user is not authorized.
+
+4) Get User's Todos
+
+Route: /todos
+Method: GET
+Parameters Accepted:
+userId (string): The ID of the user for whom todos are being retrieved.
+Response:
+200 OK if the todos are retrieved successfully, providing an array of todos.
+500 Internal Server Error if the user does not exist.
+401 Unauthorized if the user is not authorized.
+
+5) Update a Todo
+
+Route: /todos
+Method: PUT
+Parameters Accepted:
+userId (string): The ID of the user who owns the todo.
+todoId (string): The ID of the todo to be updated.
+title (string): The new title for the todo.
+description (string): The new description for the todo.
+Response:
+200 OK if the todo is updated successfully.
+500 Internal Server Error if there's an issue with the request body or if the user does not exist.
+401 Unauthorized if the user is not authorized.
+
+6) Delete a Todo
+
+Route: /todos
+Method: DELETE
+Parameters Accepted:
+userId (string): The ID of the user who owns the todo.
+todoId (string): The ID of the todo to be deleted.
+Response:
+200 OK if the todo is deleted successfully.
+500 Internal Server Error if there's an issue with the request body or if the user does not exist.
+401 Unauthorized if the user is not authorized.
