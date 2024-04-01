@@ -7,7 +7,7 @@ import AuthRoutes from "./routes/AuthRoutes.js";
 import TodoRoutes from "./routes/TodoRoutes.js";
 
 const app = express();
-const PORT = 3008;
+const PORT = process.env.PORT || 3008;
 
 app.use(bodyParser.json());
 
